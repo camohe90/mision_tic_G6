@@ -8,7 +8,7 @@ print(validar)
 validar = isinstance(numero1, int)
 print(validar)
 
-validar = isinstance(numero2, int)
+validar = isinstance(numero2, int) # Retorna True si el primer parametro es del mismo tipo que el segundo
 print(validar)
 
 validar = isinstance(palabra, str)

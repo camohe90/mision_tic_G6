@@ -1,5 +1,5 @@
 frase = input("Digite su numero de celular: ")
-print(frase.isdigit())
+print(frase.isdigit()) # Retorna True si todos los caracteres ingresados son numeros
 if frase.isdigit():
     print("Ingreso correctamente el numero")
 else: 
