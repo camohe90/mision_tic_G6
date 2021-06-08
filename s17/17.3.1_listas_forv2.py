@@ -10,8 +10,7 @@ impares = []
 
 for numero in range (10):
     mensaje = f"Ingrese el numero {numero +1}: "
-    numero_ingresado = int(input(mensaje))  # Solicito un numero al usuario
-    numeros_ingresados.append(numero_ingresado) # Agrego el numero ingresado a la lista de numeros
+    numeros_ingresados.append( int(input(mensaje))) # Agrego el numero ingresado a la lista de numeros
 
 for numero in numeros_ingresados:
     total += numero
@@ -20,12 +19,9 @@ for numero in numeros_ingresados:
     else:
         impares.append(numero)
 
-promedio = total / len(numeros_ingresados)
-menor = min(numeros_ingresados)
-mayor = max(numeros_ingresados)
 
-print(f"El promedio de los numeros ingresados es: {promedio}")
-print(f"El numero menor en la ista de numeros ingresados es: {menor}")
-print(f"El numero mayor en la lista de numeros ingresados es: {mayor}")
+print(f"El promedio de los numeros ingresados es: {total / len(numeros_ingresados)}")
+print(f"El numero menor en la ista de numeros ingresados es: {min(numeros_ingresados)}")
+print(f"El numero mayor en la lista de numeros ingresados es: {max(numeros_ingresados)}")
 print(f"Los numeros pares que hay en los numeros ingresados son {pares}")
 print(f"Los numeros impares que hay en los numeros ingresados son {impares}")
