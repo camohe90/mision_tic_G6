@@ -1,6 +1,19 @@
 from tkinter import *
+import sqlite3
 
 clientes = []
+
+def conexion():
+    conexion = sqlite3.connect("db/interfaz_1.db")
+    print("Conexión exitosa")
+
+def crear_tablas():
+    conexion = sqlite3.connect("db/interfaz_1.db")
+    print("Conectado exitosamente")
+    cursor = conexion.cursor()
+    cursor.execute("CREATE TABLE empleados(id integer PRIMARY KEY, nombre text, salario real)")
+    conexion.commit() # Guardo todos los cambios que hicimos
+
 
 def borrar_datos():
     info_nombre.set("")
@@ -9,11 +22,18 @@ def borrar_datos():
     mensaje["text"] = ""
 
 def guardar_clientes():
+    conexion = sqlite3.connect("db/interfaz_1.db")
+    cursor = conexion.cursor()
+   
     nombre1 = info_nombre.get()
     apellido1 = info_apellido.get()
     cedula1 = info_cedula.get()
     clientes.append(nombre1 + " " + apellido1+ "  "+ cedula1 )
     mensaje["text"] = "Cliente guardado"
+    cursor.execute("INSERT INTO empleados VALUES(1, 'Camilo', 1400)")
+    conexion.commit()
+
+
     ventana.after(2000, borrar_datos)
 
 def mostrar_clientes():
@@ -21,6 +41,8 @@ def mostrar_clientes():
 
 ventana = Tk()
 ventana.geometry("800x600")
+conexion()
+crear_tablas()
 
 
 info_nombre = StringVar()
